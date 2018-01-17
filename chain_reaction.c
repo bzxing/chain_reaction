@@ -301,13 +301,6 @@ void log_interactive(int board[][SIZE], int path[][2], int m) {
     }
 
     //Write team info
-    fprintf(fp, "TEAM MEMBERS (IN ALPHABETICAL ORDER BY LAST NAME):\n\n");
-    fprintf(fp, "FIRST NAME\tLAST NAME\tSTUDENT NO.\n\n");
-    fprintf(fp, "FEIFEI\t\tHUANG\t\t998124079\n");
-    fprintf(fp, "YUNZE\t\tNIE\t\t999018496\n");
-    fprintf(fp, "ZIANG\t\tXING\t\t998750114\n");
-    fprintf(fp, "YANRONG\t\tYU\t\t998826837\n");
-    fprintf(fp, "\n\n");
 
     //Print the initial board
     fprintf(fp, "%d\n", m);
@@ -359,13 +352,6 @@ void autoplay_initiation(int board[][SIZE], int status[][SIZE], int m) {
      }
 
      //write team info
-     fprintf(fp, "TEAM MEMBERS (IN ALPHABETICAL ORDER BY LAST NAME):\n\n");
-     fprintf(fp, "FIRST NAME\tLAST NAME\tSTUDENT NO.\n\n");
-     fprintf(fp, "FEIFEI\t\tHUANG\t\t998124079\n");
-     fprintf(fp, "YUNZE\t\tNIE\t\t999018496\n");
-     fprintf(fp, "ZIANG\t\tXING\t\t998750114\n");
-     fprintf(fp, "YANRONG\t\tYU\t\t998826837\n");
-     fprintf(fp, "\n\n");
 
 
 
