@@ -1,3 +1,3 @@
 # chain_reaction
 
-Found my first programming project in college.
+Surprisingly I managed to find my first programming project in college. More surprisingly I actually find the code I wrote way back then clean and easy to read. Of course, quite a few security loopholes out there.
