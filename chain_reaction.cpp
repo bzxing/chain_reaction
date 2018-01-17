@@ -39,27 +39,26 @@ void show_demo(int path[][2], int board[][SIZE], int m, int count);             
 void print_board(int board[][SIZE], int status[][SIZE], int m);                           //Print the game board. Show the shape and color of each element, and which element has been visited.
 int validate_move(int chosen_position[], int current_position[], int board[][SIZE], int status[][SIZE], int m);  //Return 0 if the move user has requested is invalid, 1 if valid.
 
+
 void my_sleep(int seconds)
 {
 #ifdef __linux__
-	sleep(seconds);
+  sleep(seconds);
 #elif _WIN32
-	Sleep(seconds * 1000);
+  Sleep(seconds * 1000);
 #else
-	Unknown OS macro!!
-	This is an intentional syntax error to simulate a static assertion.
+  static_assert(false, "Bad OS Macro");
 #endif
 }
 
 void my_clear_screen()
 {
 #ifdef __linux__
-	system("clear");
+  system("clear");
 #elif _WIN32
-	system("cls");
+  system("cls");
 #else
-	Unknown OS macro!!
-	This is an intentional syntax error to simulate a static assertion.
+  static_assert(false, "Bad OS Macro");
 #endif
 }
 
