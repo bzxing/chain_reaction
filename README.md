@@ -1,3 +1,3 @@
 # chain_reaction
 
-Found my first programming project...
+Found my first programming project in college.
