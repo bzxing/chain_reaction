@@ -4,6 +4,7 @@
  * April, 2012
  */
 
+#define __STDC_WANT_LIB_EXT1__ 1
 
 #include <stdio.h>
 #include <time.h>
@@ -165,7 +166,6 @@ void randomize_board(int board[][SIZE], int *mp) {
 
 void import_board_file(int board[][SIZE], int *mp) {
      FILE *fp;
-     char filename[512];
      char ch;
      int flag;            //Used to check the format of the file
      int i, j;
@@ -178,8 +178,10 @@ void import_board_file(int board[][SIZE], int *mp) {
         do {
            printf("\nPLEASE ENTER THE FILENAME: ");
            fflush(stdin);
-           scanf("%s", filename);
+           char * filename = 0;
+           scanf("%ms", &filename);
            fp = fopen(filename, "r");
+           free(filename);
            if (fp == NULL)
               printf("SORRY, THIS FILE CANNOT BE OPENED. PLEASE TRY AGAIN.\n\n");
         } while (fp == NULL);
