@@ -9,6 +9,10 @@
 #include <time.h>
 #include <stdlib.h>
 
+#ifdef __linux__
+#include <unistd.h>
+#endif
+
 //Macros
 #define SIZE 9              //Max dimension of the game board
 
@@ -35,7 +39,29 @@ void show_demo(int path[][2], int board[][SIZE], int m, int count);             
 void print_board(int board[][SIZE], int status[][SIZE], int m);                           //Print the game board. Show the shape and color of each element, and which element has been visited.
 int validate_move(int chosen_position[], int current_position[], int board[][SIZE], int status[][SIZE], int m);  //Return 0 if the move user has requested is invalid, 1 if valid.
 
+void my_sleep(int seconds)
+{
+#ifdef __linux__
+	sleep(seconds);
+#elif _WIN32
+	Sleep(seconds * 1000);
+#else
+	Unknown OS macro!!
+	This is an intentional syntax error to simulate a static assertion.
+#endif
+}
 
+void my_clear_screen()
+{
+#ifdef __linux__
+	system("clear");
+#elif _WIN32
+	system("cls");
+#else
+	Unknown OS macro!!
+	This is an intentional syntax error to simulate a static assertion.
+#endif
+}
 
 
 int main(void) {
@@ -532,7 +558,7 @@ void show_demo(int path[][2], int board[][SIZE], int m, int valid_paths_count) {
          }
          printf("\n");
 
-         sleep(3000);   //pause the program for seconds
+         my_sleep(3);   //pause the program for seconds
 
          //update the status[][] array
          status[path[step][0] - 1][path[step][1] - 1] = CHECKED;
@@ -595,7 +621,7 @@ int validate_move(int chosen_position[], int current_position[], int board[][SIZ
 
 void print_board(int board[][SIZE], int status[][SIZE], int m) {
      int i, j;
-     system("cls");
+     my_clear_screen();
 
      //Print the upper heading
      printf("\n************************ WELCOME TO CHAIN REACTION! ************************\n\n\n");
